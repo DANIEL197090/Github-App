@@ -9,7 +9,7 @@ import UIKit
 
 class SearchScreenViewController: UIViewController {
   let dataLoader = DataLoader()
-  var follwers: [FollwersDetails]?
+  var followers: [FollwersDetails]?
   
   lazy var userImageView: UIImageView = {
     let imageView = UIImageView()
@@ -23,7 +23,7 @@ class SearchScreenViewController: UIViewController {
   
   lazy var titleLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .systemBackground
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +40,7 @@ class SearchScreenViewController: UIViewController {
     textField.backgroundColor = .clear
     textField.layer.borderWidth = 1
     textField.layer.cornerRadius = 8
+    textField.autocorrectionType = .no
     textField.font = UIFont(name: "Helvetica", size: 14)
     return textField
   }()
@@ -81,15 +82,31 @@ class SearchScreenViewController: UIViewController {
     setupConstraint()
     view.backgroundColor = .systemBackground
   }
+  
+  
   @objc func getFollowersButton() {
-    follwers = []
-    dataLoader.pullFollowersData(username: titleTextView.text!) { [self] data in
-      follwers =  data
-      guard let follwers = follwers else {return}
-      if follwers.count == 0 {
-          print("user does not have a follwer")
+    
+    DispatchQueue.main.async { [self] in
+      //follwers = []
+      if self.titleTextView.text! != "" {
+        let nextController = followersListViewController()
+      dataLoader.pullFollowersData(username: self.titleTextView.text!) { [self] data in
+        followers =  data
+        nextController.followers = data
+      
+        DispatchQueue.main.async { [self] in
+          nextController.usernameLabel.text = titleTextView.text
+        navigationController?.pushViewController(nextController, animated: true)
+        }
+        guard let follwers = followers else {return}
+        if follwers.count == 0 {
+            print("user does not have a follwer")
+        }else {
+          print("user have \(follwers.count)")
+        }
+      }
       }else {
-        print("user have \(follwers.count)")
+        
       }
     }
 

@@ -26,23 +26,4 @@ class DataLoader {
             }.resume()
         }
     }
-//    public func pullListJSONData(completionHandler: @escaping (Welcome) -> ()) {
-//         let url = "https://api-prod.autochek.africa/v1/inventory/car/search"
-//
-//         if let url = URL(string: url) {
-//             URLSession.shared.dataTask(with: url) { data, response, error in
-//                 if let data = data {
-//                     do {
-//                         let json = try JSONDecoder().decode(Welcome.self, from: data)
-//                         print("Data is loaded")
-//                         print(json)
-//                         completionHandler(json)
-//                     } catch {
-//                         print("\(error)")
-//                     }
-//                 }
-//             }.resume()
-//         }
-//     }
-  
 }
