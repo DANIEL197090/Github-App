@@ -8,6 +8,8 @@
 import UIKit
 
 class SearchScreenViewController: UIViewController {
+  let dataLoader = DataLoader()
+  var follwers: [FollwersDetails]?
   
   lazy var userImageView: UIImageView = {
     let imageView = UIImageView()
@@ -78,9 +80,13 @@ class SearchScreenViewController: UIViewController {
     super.viewDidLoad()
     setupConstraint()
     view.backgroundColor = .systemBackground
-   
-  }
+    dataLoader.pullFollowersData { [self] data in
+      follwers =  data
+      guard let follwers = follwers else {return}
+      print(follwers.count)
+    }
   
+  }
   @objc func getFollowersButton() {
     
   }
