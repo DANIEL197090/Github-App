@@ -9,16 +9,15 @@ import UIKit
 
 class DataLoader {
     //MARK: - Method to get current weather data from API
-   public func pullFollowersData(completionHandler: @escaping (FollowersData ) -> ()) {
-        let url = "https://api.github.com/users/DANIEL197090/followers"
+  public func pullFollowersData(username:String, completionHandler: @escaping (FollowersData ) -> ()) {
+        let url = "https://api.github.com/users/\(username)/followers"
         
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
                         let json = try JSONDecoder().decode(FollowersData .self, from: data)
-                        print("Here is the data")
-                        print(json)
+                      print(json)
                         completionHandler(json)
                     } catch {
                         print("\(error.localizedDescription)")

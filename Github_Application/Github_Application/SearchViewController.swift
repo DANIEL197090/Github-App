@@ -80,15 +80,19 @@ class SearchScreenViewController: UIViewController {
     super.viewDidLoad()
     setupConstraint()
     view.backgroundColor = .systemBackground
-    dataLoader.pullFollowersData { [self] data in
-      follwers =  data
-      guard let follwers = follwers else {return}
-      print(follwers.count)
-    }
-  
   }
   @objc func getFollowersButton() {
-    
+    follwers = []
+    dataLoader.pullFollowersData(username: titleTextView.text!) { [self] data in
+      follwers =  data
+      guard let follwers = follwers else {return}
+      if follwers.count == 0 {
+          print("user does not have a follwer")
+      }else {
+        print("user have \(follwers.count)")
+      }
+    }
+
   }
   
   func setupSubviews() {
