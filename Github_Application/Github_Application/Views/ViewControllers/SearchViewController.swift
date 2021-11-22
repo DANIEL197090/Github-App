@@ -87,7 +87,7 @@ class SearchScreenViewController: UIViewController {
   @objc func getFollowersButton() {
     
     DispatchQueue.main.async { [self] in
-      //follwers = []
+      
       if self.usernameTextField.text! != "" {
         let nextController = followersListViewController()
         dataLoader.pullFollowersData(username: self.usernameTextField.text!) { [weak self] data in
@@ -101,7 +101,8 @@ class SearchScreenViewController: UIViewController {
               nextController.noFollowerLabel.text = "User does not have any follower. "
               self?.navigationController?.pushViewController(nextController, animated: true)
             }
-          } else{
+          }
+          else {
             DispatchQueue.main.async { [self] in
               nextController.usernameLabel.text = usernameTextField.text
               self?.navigationController?.pushViewController(nextController, animated: true)

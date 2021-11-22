@@ -188,7 +188,8 @@ class UserInfoScreenViewController: UIViewController {
   lazy var dateLabel: UILabel = {
     let name = UILabel()
     name.textColor =  .label
-    name.numberOfLines = 1
+    name.numberOfLines = 0
+    name.textAlignment = .center
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
     name.text = "Github since Jan 2015"
@@ -333,8 +334,8 @@ class UserInfoScreenViewController: UIViewController {
       getFollowerButton.heightAnchor.constraint(equalToConstant: 50),
       
       dateLabel.topAnchor.constraint(equalTo: followersView.bottomAnchor, constant: 20),
-      dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120),
-      dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -120)
+      dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+      dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
       
     ])
   }

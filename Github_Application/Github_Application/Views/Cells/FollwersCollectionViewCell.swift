@@ -38,11 +38,11 @@ class FollwersCollectionViewCell: UICollectionViewCell {
     addSubview(followersImageView)
     
     followersName.anchorWithConstantsToTop(top: followersImageView.bottomAnchor, left: leftAnchor,
-                                       bottom: bottomAnchor,
-                                       right: rightAnchor,
-                                       topConstant: 5,
-                                       leftConstant: 10,
-                                       bottomConstant: 0, rightConstant: 0)
+                                           bottom: bottomAnchor,
+                                           right: rightAnchor,
+                                           topConstant: 5,
+                                           leftConstant: 10,
+                                           bottomConstant: 0, rightConstant: 0)
     followersImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 5, leftConstant: 0, bottomConstant: 20, rightConstant: 0)
   }
   required init?(coder: NSCoder) {
@@ -96,9 +96,9 @@ extension UIView {
 }
 
 class follwers: UIImageView {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        layer.cornerRadius = frame.height / 2
-    }
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    layer.cornerRadius = frame.height / 2
+  }
 }
