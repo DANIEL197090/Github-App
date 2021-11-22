@@ -19,7 +19,7 @@ struct UserInfoDetails: Codable {
     let company, blog: String?
     let location, email, hireable: String?
     let bio: String?
-    let public_repos, public_gists, followers, following: Int?
+    let public_repos, public_gists, followers, following: Int
     let created_at, uupdated_at: String?
 
 }

@@ -10,7 +10,7 @@ import UIKit
 class UserInfoScreenViewController: UIViewController {
   
   let dataLoader = DataLoader()
-  var userDetails: UserInfoDetails? = nil
+  var userDetails: UserInfoDetails?
   
   lazy var userImageView: UIImageView = {
     let imageView = UIImageView()
@@ -96,7 +96,7 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "17"
+    name.text = "0"
     return name
   }()
   
@@ -106,7 +106,7 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "17"
+    name.text = "0"
     return name
   }()
   
@@ -159,7 +159,7 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "237"
+    name.text = "0"
     return name
   }()
   
@@ -169,7 +169,7 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "15"
+    name.text = "0"
     return name
   }()
   
@@ -224,7 +224,7 @@ class UserInfoScreenViewController: UIViewController {
           nameLabel.text = userDetails.name
           bioLabel.text = userDetails.bio
           locationLabel.text = userDetails.location
-          publicReposValuesLabel.text = "\(String(describing: userDetails.public_repos))"
+          publicReposValuesLabel.text = "\(userDetails.public_repos)"
           publicGistsValuesLabel.text = "\(String(describing: userDetails.public_gists))"
           numberOfFollowersLabel.text = "\(String(describing: userDetails.followers))"
           numberOfFollowingsLabel.text = "\(String(describing: userDetails.following))"
