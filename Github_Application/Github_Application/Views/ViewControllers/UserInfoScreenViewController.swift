@@ -229,7 +229,6 @@ class UserInfoScreenViewController: UIViewController {
           numberOfFollowersLabel.text = "\(String(describing: userDetails.followers))"
           numberOfFollowingsLabel.text = "\(String(describing: userDetails.following))"
         
-         
         }
       }
       
