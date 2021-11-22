@@ -71,12 +71,12 @@ class SearchScreenViewController: UIViewController {
       print("nice")
     }
   }
-
+  
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-      super.traitCollectionDidChange(previousTraitCollection)
-      updateImageForCurrentTraitCollection()
+    super.traitCollectionDidChange(previousTraitCollection)
+    updateImageForCurrentTraitCollection()
   }
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupConstraint()
@@ -91,25 +91,28 @@ class SearchScreenViewController: UIViewController {
       if self.usernameTextField.text! != "" {
         let nextController = followersListViewController()
         dataLoader.pullFollowersData(username: self.usernameTextField.text!) { [weak self] data in
-        followers =  data
-        nextController.followers = data
-      
-        DispatchQueue.main.async { [self] in
-          nextController.usernameLabel.text = usernameTextField.text
-        navigationController?.pushViewController(nextController, animated: true)
+          followers =  data
+          nextController.followers = data
+          guard let follwers = followers else {return}
+          
+          if follwers.count == 0 {
+            DispatchQueue.main.async { [self] in
+              nextController.usernameLabel.text = usernameTextField.text
+              nextController.noFollowerLabel.text = "User does not have any follower. "
+              self?.navigationController?.pushViewController(nextController, animated: true)
+            }
+          } else{
+            DispatchQueue.main.async { [self] in
+              nextController.usernameLabel.text = usernameTextField.text
+              self?.navigationController?.pushViewController(nextController, animated: true)
+            }
+          }
         }
-        guard let follwers = followers else {return}
-        if follwers.count == 0 {
-            print("user does not have a follwer")
-        }else {
-          print("user have \(follwers.count)")
-        }
-      }
       }else {
         
       }
     }
-
+    
   }
   
   func setupSubviews() {
@@ -121,7 +124,7 @@ class SearchScreenViewController: UIViewController {
   
   func setupConstraint() {
     setupSubviews()
-
+    
     NSLayoutConstraint.activate ([
       
       userImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -143,7 +146,7 @@ class SearchScreenViewController: UIViewController {
       addButton.heightAnchor.constraint(equalToConstant: 52)
     ])
   }
-
+  
 }
 
 class LeftPaddedTextField: UITextField {
