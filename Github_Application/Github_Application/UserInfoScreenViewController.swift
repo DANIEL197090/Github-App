@@ -27,9 +27,8 @@ class UserInfoScreenViewController: UIViewController {
     let name = UILabel()
     name.textColor =  .label
     name.numberOfLines = 1
-    name.font = UIFont(name: "Helvetica", size: 20)
+    name.font =  UIFont.boldSystemFont(ofSize: 20)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "SAllen0400"
     return name
   }()
   
@@ -39,7 +38,6 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "Sean Alien"
     return name
   }()
   
@@ -49,7 +47,6 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 0
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "Location here"
     return name
   }()
   
@@ -59,14 +56,14 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 0
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-    name.text = "Here is my bio"
+  //  name.text = "Here is my bio"
     return name
   }()
   
   // MARK: - PROFILE UI VIEW
   lazy var profileView: UIView = {
     let view = UIView()
-    view.backgroundColor = .lightGray
+    view.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.97, alpha: 1.00)
     view.layer.cornerRadius = 15
     view.isUserInteractionEnabled = true
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +72,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var publicReposLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +82,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var publicGistsLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +92,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var publicReposValuesLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +102,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var publicGistsValuesLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +126,7 @@ class UserInfoScreenViewController: UIViewController {
   // MARK: - FOLLWERS UI VIEW
   lazy var followersView: UIView = {
     let view = UIView()
-    view.backgroundColor = .lightGray
+    view.backgroundColor =  UIColor(red: 0.93, green: 0.93, blue: 0.97, alpha: 1.00)
     view.layer.cornerRadius = 15
     view.isUserInteractionEnabled = true
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +135,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var followersLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -148,7 +145,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var followingLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -158,7 +155,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var numberOfFollowersLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -168,7 +165,7 @@ class UserInfoScreenViewController: UIViewController {
   
   lazy var numberOfFollowingsLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .label
+    name.textColor =  .black
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
