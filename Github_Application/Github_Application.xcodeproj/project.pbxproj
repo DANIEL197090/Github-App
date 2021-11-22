@@ -21,6 +21,8 @@
 		B4F5CB1127499BBB00ECE67F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */; };
 		B4F5CB13274AD7B300ECE67F /* UserInfoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */; };
 		B4F5CB15274AD92200ECE67F /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */; };
+		B4F5CB17274BA78F00ECE67F /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB16274BA78F00ECE67F /* FavoriteTableViewCell.swift */; };
+		B4F5CB21274BD02200ECE67F /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB20274BD02200ECE67F /* FavoriteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoScreenViewController.swift; sourceTree = "<group>"; };
 		B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		B4F5CB16274BA78F00ECE67F /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		B4F5CB20274BD02200ECE67F /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +76,89 @@
 		B4F5CAF927498E3500ECE67F /* Github_Application */ = {
 			isa = PBXGroup;
 			children = (
-				B4F5CAFA27498E3500ECE67F /* AppDelegate.swift */,
-				B4F5CAFC27498E3500ECE67F /* SceneDelegate.swift */,
-				B4F5CAFE27498E3500ECE67F /* SearchViewController.swift */,
-				B4BFB773274A8032006BACF6 /* followersListViewController.swift */,
-				B4F5CB0027498E3500ECE67F /* Main.storyboard */,
-				B4F5CB0327498E3700ECE67F /* Assets.xcassets */,
-				B4F5CB0527498E3700ECE67F /* LaunchScreen.storyboard */,
-				B4F5CB0827498E3700ECE67F /* Info.plist */,
-				B4F5CB0E27499B0200ECE67F /* FavoriteViewController.swift */,
-				B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */,
-				B4BFB76F274A70B2006BACF6 /* FollowersModel.swift */,
-				B4BFB771274A7136006BACF6 /* DataLoader.swift */,
-				B4BFB775274A829E006BACF6 /* FollwersCollectionViewCell.swift */,
-				B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */,
-				B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */,
+				B4F5CB1F274BCF5500ECE67F /* UtilityFiles */,
+				B4F5CB1C274BCEC300ECE67F /* Models */,
+				B4F5CB1B274BCE9000ECE67F /* Views */,
+				B4F5CB1A274BCE7A00ECE67F /* Storyboards */,
+				B4F5CB19274BCE5400ECE67F /* Delegates */,
+				B4F5CB18274BCE4400ECE67F /* SupportingFiles */,
 			);
 			path = Github_Application;
+			sourceTree = "<group>";
+		};
+		B4F5CB18274BCE4400ECE67F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CB0827498E3700ECE67F /* Info.plist */,
+				B4F5CB0327498E3700ECE67F /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B4F5CB19274BCE5400ECE67F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CAFA27498E3500ECE67F /* AppDelegate.swift */,
+				B4F5CAFC27498E3500ECE67F /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B4F5CB1A274BCE7A00ECE67F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CB0027498E3500ECE67F /* Main.storyboard */,
+				B4F5CB0527498E3700ECE67F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B4F5CB1B274BCE9000ECE67F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CB1E274BCEDE00ECE67F /* ViewControllers */,
+				B4F5CB1D274BCED700ECE67F /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B4F5CB1C274BCEC300ECE67F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4BFB76F274A70B2006BACF6 /* FollowersModel.swift */,
+				B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */,
+				B4F5CB20274BD02200ECE67F /* FavoriteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4F5CB1D274BCED700ECE67F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CB16274BA78F00ECE67F /* FavoriteTableViewCell.swift */,
+				B4BFB775274A829E006BACF6 /* FollwersCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B4F5CB1E274BCEDE00ECE67F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */,
+				B4F5CAFE27498E3500ECE67F /* SearchViewController.swift */,
+				B4F5CB0E27499B0200ECE67F /* FavoriteViewController.swift */,
+				B4BFB773274A8032006BACF6 /* followersListViewController.swift */,
+				B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B4F5CB1F274BCF5500ECE67F /* UtilityFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B4BFB771274A7136006BACF6 /* DataLoader.swift */,
+			);
+			path = UtilityFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4F5CB15274AD92200ECE67F /* UserInfoModel.swift in Sources */,
+				B4F5CB17274BA78F00ECE67F /* FavoriteTableViewCell.swift in Sources */,
 				B4F5CAFF27498E3500ECE67F /* SearchViewController.swift in Sources */,
 				B4BFB770274A70B2006BACF6 /* FollowersModel.swift in Sources */,
 				B4BFB772274A7136006BACF6 /* DataLoader.swift in Sources */,
@@ -169,6 +240,7 @@
 				B4F5CAFB27498E3500ECE67F /* AppDelegate.swift in Sources */,
 				B4BFB774274A8032006BACF6 /* followersListViewController.swift in Sources */,
 				B4F5CB0F27499B0200ECE67F /* FavoriteViewController.swift in Sources */,
+				B4F5CB21274BD02200ECE67F /* FavoriteModel.swift in Sources */,
 				B4F5CB1127499BBB00ECE67F /* TabBarViewController.swift in Sources */,
 				B4F5CAFD27498E3500ECE67F /* SceneDelegate.swift in Sources */,
 				B4BFB776274A829E006BACF6 /* FollwersCollectionViewCell.swift in Sources */,
@@ -319,7 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Github_Application/Info.plist;
+				INFOPLIST_FILE = Github_Application/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,7 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Github_Application/Info.plist;
+				INFOPLIST_FILE = Github_Application/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
