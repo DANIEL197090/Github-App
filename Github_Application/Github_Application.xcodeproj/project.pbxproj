@@ -19,6 +19,8 @@
 		B4F5CB0727498E3700ECE67F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F5CB0527498E3700ECE67F /* LaunchScreen.storyboard */; };
 		B4F5CB0F27499B0200ECE67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB0E27499B0200ECE67F /* FavoriteViewController.swift */; };
 		B4F5CB1127499BBB00ECE67F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */; };
+		B4F5CB13274AD7B300ECE67F /* UserInfoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */; };
+		B4F5CB15274AD92200ECE67F /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		B4F5CB0827498E3700ECE67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F5CB0E27499B0200ECE67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		B4F5CB1027499BBB00ECE67F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoScreenViewController.swift; sourceTree = "<group>"; };
+		B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				B4BFB76F274A70B2006BACF6 /* FollowersModel.swift */,
 				B4BFB771274A7136006BACF6 /* DataLoader.swift */,
 				B4BFB775274A829E006BACF6 /* FollwersCollectionViewCell.swift */,
+				B4F5CB12274AD7B300ECE67F /* UserInfoScreenViewController.swift */,
+				B4F5CB14274AD92200ECE67F /* UserInfoModel.swift */,
 			);
 			path = Github_Application;
 			sourceTree = "<group>";
@@ -155,9 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F5CB15274AD92200ECE67F /* UserInfoModel.swift in Sources */,
 				B4F5CAFF27498E3500ECE67F /* SearchViewController.swift in Sources */,
 				B4BFB770274A70B2006BACF6 /* FollowersModel.swift in Sources */,
 				B4BFB772274A7136006BACF6 /* DataLoader.swift in Sources */,
+				B4F5CB13274AD7B300ECE67F /* UserInfoScreenViewController.swift in Sources */,
 				B4F5CAFB27498E3500ECE67F /* AppDelegate.swift in Sources */,
 				B4BFB774274A8032006BACF6 /* followersListViewController.swift in Sources */,
 				B4F5CB0F27499B0200ECE67F /* FavoriteViewController.swift in Sources */,

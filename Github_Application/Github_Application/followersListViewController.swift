@@ -7,7 +7,9 @@
 
 import UIKit
 
-class followersListViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class followersListViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  let dataLoader = DataLoader()
+  var userDetails: UserInfoDetails?
   
   lazy var followersCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -50,7 +52,12 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
       return CGSize(width: 100, height: 150)
   }
   
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      let viewController = UserInfoScreenViewController()
+    viewController.followersName = followers[indexPath.row].login
+    viewController.configure(with: followers[indexPath.row].avatarURL)
+      navigationController?.pushViewController(viewController, animated: true)
+  }
   
   let cellId = "cellId"
     override func viewDidLoad() {
