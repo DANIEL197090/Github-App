@@ -21,9 +21,9 @@ class SearchScreenViewController: UIViewController {
     return imageView
   }()
   
-  lazy var titleLabel: UILabel = {
+  lazy var usernameLabel: UILabel = {
     let name = UILabel()
-    name.textColor =  .systemBackground
+    name.textColor =  .label
     name.numberOfLines = 1
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class SearchScreenViewController: UIViewController {
     return name
   }()
   
-  lazy var titleTextView: LeftPaddedTextField = {
+  lazy var usernameTextField: LeftPaddedTextField = {
     let textField = LeftPaddedTextField()
     textField.tintColor = UIColor(red: 0.29, green: 0.05, blue: 0.76, alpha: 1.00)
     textField.placeholder = "Enter Username"
@@ -88,14 +88,14 @@ class SearchScreenViewController: UIViewController {
     
     DispatchQueue.main.async { [self] in
       //follwers = []
-      if self.titleTextView.text! != "" {
+      if self.usernameTextField.text! != "" {
         let nextController = followersListViewController()
-      dataLoader.pullFollowersData(username: self.titleTextView.text!) { [self] data in
+        dataLoader.pullFollowersData(username: self.usernameTextField.text!) { [weak self] data in
         followers =  data
         nextController.followers = data
       
         DispatchQueue.main.async { [self] in
-          nextController.usernameLabel.text = titleTextView.text
+          nextController.usernameLabel.text = usernameTextField.text
         navigationController?.pushViewController(nextController, animated: true)
         }
         guard let follwers = followers else {return}
@@ -113,8 +113,8 @@ class SearchScreenViewController: UIViewController {
   }
   
   func setupSubviews() {
-    view.addSubview(titleLabel)
-    view.addSubview(titleTextView)
+    view.addSubview(usernameLabel)
+    view.addSubview(usernameTextField)
     view.addSubview(userImageView)
     view.addSubview(addButton)
   }
@@ -129,13 +129,13 @@ class SearchScreenViewController: UIViewController {
       userImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80),
       userImageView.heightAnchor.constraint(equalToConstant: 200),
       
-      titleLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 10),
-      titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 170),
+      usernameLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 10),
+      usernameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 170),
       
-      titleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
-      titleTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
-      titleTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
-      titleTextView.heightAnchor.constraint(equalToConstant: 45),
+      usernameTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 30),
+      usernameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+      usernameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+      usernameTextField.heightAnchor.constraint(equalToConstant: 45),
       
       addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
       addButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
