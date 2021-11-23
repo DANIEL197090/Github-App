@@ -56,7 +56,6 @@ class UserInfoScreenViewController: UIViewController {
     name.numberOfLines = 0
     name.font = UIFont(name: "Helvetica", size: 16)
     name.translatesAutoresizingMaskIntoConstraints = false
-  //  name.text = "Here is my bio"
     return name
   }()
   
@@ -121,7 +120,7 @@ class UserInfoScreenViewController: UIViewController {
     button.layer.cornerRadius = 8
     return button
   }()
-
+  
   
   // MARK: - FOLLWERS UI VIEW
   lazy var followersView: UIView = {
@@ -211,29 +210,29 @@ class UserInfoScreenViewController: UIViewController {
       }
     }.resume()
   }
-    var followersName = ""
-    var image = UIImage()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      view.backgroundColor = .systemBackground
-      setupViewsConstraints()
-      usernameLabel.text = followersName
-      dataLoader.pullUserInfoData(username: usernameLabel.text!) { [self] data in
-        userDetails = data
-        guard let userDetails = userDetails else { return }
-        DispatchQueue.main.async {
-          nameLabel.text = userDetails.name
-          bioLabel.text = userDetails.bio
-          locationLabel.text = userDetails.location
-          publicReposValuesLabel.text = "\(userDetails.public_repos)"
-          publicGistsValuesLabel.text = "\(String(describing: userDetails.public_gists))"
-          numberOfFollowersLabel.text = "\(String(describing: userDetails.followers))"
-          numberOfFollowingsLabel.text = "\(String(describing: userDetails.following))"
+  var followersName = ""
+  var image = UIImage()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .systemBackground
+    setupViewsConstraints()
+    usernameLabel.text = followersName
+    dataLoader.pullUserInfoData(username: usernameLabel.text!) { [self] data in
+      userDetails = data
+      guard let userDetails = userDetails else { return }
+      DispatchQueue.main.async {
+        nameLabel.text = userDetails.name
+        bioLabel.text = userDetails.bio
+        locationLabel.text = userDetails.location
+        publicReposValuesLabel.text = "\(userDetails.public_repos)"
+        publicGistsValuesLabel.text = "\(String(describing: userDetails.public_gists))"
+        numberOfFollowersLabel.text = "\(String(describing: userDetails.followers))"
+        numberOfFollowingsLabel.text = "\(String(describing: userDetails.following))"
         
-        }
       }
-      
     }
+    
+  }
   
   @objc func getFollowersButton() {
     
@@ -242,7 +241,7 @@ class UserInfoScreenViewController: UIViewController {
   @objc func viewProfileButton() {
     
   }
-   
+  
   func setUpViews() {
     view.addSubview(userImageView)
     view.addSubview(usernameLabel)
@@ -268,13 +267,13 @@ class UserInfoScreenViewController: UIViewController {
     setUpViews()
     
     let stack = UIStackView(arrangedSubviews: [usernameLabel, nameLabel, locationLabel] )
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.spacing = 1
-        view.addSubview(stack)
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.axis = .vertical
+    stack.distribution = .fillEqually
+    stack.spacing = 1
+    view.addSubview(stack)
     NSLayoutConstraint.activate ([
-    
+      
       
       userImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
       userImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),

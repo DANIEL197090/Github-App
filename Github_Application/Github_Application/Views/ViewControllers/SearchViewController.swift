@@ -81,8 +81,8 @@ class SearchScreenViewController: UIViewController {
     super.viewDidLoad()
     setupConstraint()
     view.backgroundColor = .systemBackground
+    navigationController?.navigationBar.isHidden = true
   }
-  
   
   @objc func getFollowersButton() {
     

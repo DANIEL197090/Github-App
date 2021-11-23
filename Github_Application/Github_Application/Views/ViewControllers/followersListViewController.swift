@@ -32,6 +32,7 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
     text.translatesAutoresizingMaskIntoConstraints = false
     return text
   }()
+
   
   let noFollowerLabel: UILabel = {
     let text = UILabel()
@@ -55,6 +56,8 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
     DispatchQueue.main.async { [self] in
       cell.followersName.text =  followers[indexPath.row].login
       cell.configure(with: imageUrlString)
+      cell.selectionLabel.text = "○"
+      cell.isEditing = isEditing
     }
     return cell
   }
@@ -66,6 +69,7 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
     let viewController = UserInfoScreenViewController()
     viewController.followersName = followers[indexPath.row].login
     viewController.configure(with: followers[indexPath.row].avatarURL)
+    
     navigationController?.pushViewController(viewController, animated: true)
   }
   
@@ -76,6 +80,36 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
     view.backgroundColor = .systemBackground
     setupConstraints()
     followersCollectionView.reloadData()
+    navigationController?.navigationBar.isHidden = false
+    navigationController?.navigationBar.backgroundColor = .lightGray
+    let button1 = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(didTapFavoriteButton))
+    self.navigationItem.rightBarButtonItem  = button1
+    
+  }
+  @objc func didTapFavoriteButton() {
+    let button1 = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(didTapFavoriteColoredButton))
+    self.navigationItem.rightBarButtonItem  = button1
+    setEditing(true, animated: true)
+  }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    followersCollectionView.allowsMultipleSelection = editing
+    followersCollectionView.indexPathsForSelectedItems?.forEach({ (indexPath) in
+      followersCollectionView.deselectItem(at: indexPath, animated: false)
+     
+    })
+    followersCollectionView.indexPathsForVisibleItems.forEach { IndexPath in
+      let cell = followersCollectionView.cellForItem(at: IndexPath) as! FollwersCollectionViewCell
+      cell.isEditing  = editing
+    }
+  }
+  
+  @objc func didTapFavoriteColoredButton() {
+    let button1 = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(didTapFavoriteButton))
+    self.navigationItem.rightBarButtonItem  = button1
+    setEditing(false, animated: true)
+    
   }
   
   func addDefaultViews() {
@@ -83,6 +117,8 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
     view.addSubview(usernameLabel)
     view.addSubview(noFollowerLabel)
   }
+  
+  
   
   func setupConstraints() {
     addDefaultViews()
@@ -93,7 +129,8 @@ class followersListViewController: UIViewController,UICollectionViewDataSource, 
       noFollowerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
       noFollowerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10),
       noFollowerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-      noFollowerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+      noFollowerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+     
     ])
     followersCollectionView.anchorWithConstantsToTop(top:view.topAnchor,
                                                      left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 140, leftConstant: 20, bottomConstant: 30, rightConstant: 20)

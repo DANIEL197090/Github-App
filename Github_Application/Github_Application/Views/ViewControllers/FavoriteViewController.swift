@@ -64,7 +64,6 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
     self.favoriteTableView.tableFooterView = UIView()
-    //cell.titleLabel.text = favorite![indexPath.row].login
     cell.backgroundColor = .white
     return cell
     

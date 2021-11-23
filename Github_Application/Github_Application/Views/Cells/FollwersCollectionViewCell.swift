@@ -26,7 +26,31 @@ class FollwersCollectionViewCell: UICollectionViewCell {
     return text
   }()
   
+  var selectionLabel : UILabel = {
+    let button = UILabel()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    return button
+  }()
   
+  var isEditing: Bool = false {
+    didSet {
+    selectionLabel.isHidden = !isEditing
+    }
+  }
+  
+  override var isSelected: Bool {
+    didSet {
+      if isEditing  {
+        selectionLabel.text = isSelected ? "✔︎" : ""
+      }
+    }
+  }
+  
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    selectionLabel.isHidden = !isEditing
+  }
   override init(frame: CGRect) {
     super.init(frame: frame)
     setUpViews()
@@ -36,7 +60,7 @@ class FollwersCollectionViewCell: UICollectionViewCell {
   func setUpViews() {
     addSubview(followersName)
     addSubview(followersImageView)
-    
+    addSubview(selectionLabel)
     followersName.anchorWithConstantsToTop(top: followersImageView.bottomAnchor, left: leftAnchor,
                                            bottom: bottomAnchor,
                                            right: rightAnchor,
@@ -44,6 +68,7 @@ class FollwersCollectionViewCell: UICollectionViewCell {
                                            leftConstant: 10,
                                            bottomConstant: 0, rightConstant: 0)
     followersImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 5, leftConstant: 0, bottomConstant: 20, rightConstant: 0)
+    selectionLabel.anchorWithConstantsToTop(top: followersImageView.bottomAnchor, left: followersName.leftAnchor, bottom: bottomAnchor, right: followersName.rightAnchor, topConstant: 0, leftConstant: 75, bottomConstant: 0, rightConstant: 0)
   }
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
